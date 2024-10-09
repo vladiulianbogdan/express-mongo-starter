@@ -1,0 +1,33 @@
+backend:
+    functions:
+        - entry: app.js
+          handler: handler
+          name: express-mongo-starter
+          path: ./
+          type: aws
+    language:
+        name: js
+        packageManager: npm
+    path: ./
+    scripts:
+        deploy: npm install
+        local: npm install
+frontend:
+    environment:
+        VITE_API_URL: ${{ backend.functions.express-mongo-starter.url }}
+    path: ./frontend
+    publish: ./dist
+    scripts:
+        build: npm run build
+        deploy: npm install
+        local: npm install
+        start: npm run dev
+    subdomain: express-mongo-starter
+name: express-mongo-starter
+region: us-east-1
+services:
+    databases:
+        - name: my-mongo-db
+          region: us-east-1
+          type: mongo-atlas
+yamlVersion: 2
