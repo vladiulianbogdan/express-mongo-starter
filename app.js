@@ -19,9 +19,9 @@ app.use('/users', userRoutes);
 
 // Start server
 if (process.env.NODE_ENV === 'dev') {
-    app.listen(port, () => {
-        console.log(`Server running on port ${port}`);
-    });
+  app.listen(port, () => {
+    console.log(`Server running on porrrrrt ${port}`);
+  });
 }
 
-module.exports.handler=serverless(app);
+module.exports.handler = serverless(app);
